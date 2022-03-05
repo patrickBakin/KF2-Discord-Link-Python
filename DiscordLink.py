@@ -2,7 +2,7 @@ import socket
 import time
 
 from discord import Webhook, RequestsWebhookAdapter # Importing discord.Webhook and discord.RequestsWebhookAdapter
-import unicodedata2
+
 
 webhook = Webhook.from_url('https://discordapp.com/api/webhooks/949141290971455588/F7RJDbC4svqUIVSutORjQseoXhJJmWRUjqHKRqXVoPGc_Uf7M25RnftCVWxLXdYGBpFT', adapter=RequestsWebhookAdapter()) # Initializing webhook
 
