@@ -38,13 +38,19 @@ class ReceiveChat:
             if (data == bytes()):
                 print("Reconnecting...")
                 self.client.close()
+                try:
+                    self.Connect()
+                except Exception as E:
+                    print(f"Error: {E} Couldn't connect to the server. Exit.")
 
-                self.Connect()
                 break
             else:
                 self.webhook = DiscordWebhook('Your Webhook URL',content=self.decodedata(data.decode('utf-8')))
+                try:
+                    self.sent_webhook = self.webhook.execute()
+                except Exception as e:
+                    print(f"Error:{e} retrying..")
 
-                self.sent_webhook = self.webhook.execute()
     @staticmethod
     def decodedata(string):
         numarray=string.split('/')
