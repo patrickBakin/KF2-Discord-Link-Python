@@ -41,7 +41,9 @@ class ReceiveChat:
                 try:
                     self.Connect()
                 except Exception as E:
-                    print(f"Error: {E} Couldn't connect to the server. Exit.")
+                    print(f"Error: {E}  retrying...")
+                    time.sleep(1)
+                    continue
 
                 break
             else:
